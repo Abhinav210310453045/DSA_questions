@@ -1,0 +1,59 @@
+class Solution {
+public:
+    bool dfs(unordered_map<int,bool> &dfs_visited,unordered_map<int,bool> &visited,unordered_map<int ,      list<int>>& adj,int node)
+    {
+        visited[node]=true;
+        dfs_visited[node]=true;
+        for(auto neighbour: adj[node])
+        {
+            if(!visited[neighbour])
+            {
+               bool cycle= dfs(dfs_visited,visited,adj,neighbour);
+                if(cycle)
+                {
+                    return true;
+                }
+            }
+            else if(dfs_visited[neighbour])
+            {   
+                return true;
+            }
+        }
+        dfs_visited[node]=false;
+        return false;
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    bool canFinish(int numCourses, vector<vector<int>>& prerequisites) {
+        unordered_map<int ,list<int>> adj;
+        for(int i=0;i<prerequisites.size();i++)
+        {
+            int course=prerequisites[i][0];
+            int prereq=prerequisites[i][1];
+            adj[course].push_back(prereq);
+        }
+
+
+
+        unordered_map<int,bool> visited,dfs_visited;
+        for(int i=0;i<numCourses;i++)
+        {
+            if(!visited[i])
+            {
+                bool ans=dfs(dfs_visited,visited,adj,i);
+                if(ans)
+                {
+                    return false;
+                }
+            }
+        }
+    return true;
+        
+    }
+};
