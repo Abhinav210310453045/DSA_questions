@@ -139,7 +139,7 @@ def game():
             if event.type== pygame.KEYDOWN:
                 if event.key== pygame.K_q:
                     close()
-                if event.key== pygame.k_r:
+                if event.key== pygame.K_r:
                     score=0
                     game()
             
