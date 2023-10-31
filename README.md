@@ -1,2 +1,4 @@
-# DSA_questions
-Here , I am going to put the codes of all the quesitons which  I am going to solve for DSA
+# HELLOW VISITOR !!
+
+Welcome to my main repository ,here i will be uploading all the programming work which I will be doing ,feel free to use the resources if they are of any use to you.
+# THANKYOU
